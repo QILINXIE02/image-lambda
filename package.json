@@ -9,7 +9,6 @@
   "author": "Qilin Xie",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.1625.0",
-    "node-fetch": "^3.3.1"
+    "@aws-sdk/client-s3": "^3.255.0"
   }
 }

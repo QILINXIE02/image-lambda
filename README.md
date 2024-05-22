@@ -1,5 +1,8 @@
 # Image Lambda Function
 
+-[AWS URL](https://qilinlab17.s3.us-west-2.amazonaws.com/images.json)
+
+
 ## Overview
 
 This repository contains the code for an AWS Lambda function designed to automatically process image uploads to an S3 bucket. The Lambda function is triggered whenever an image is uploaded to the specified S3 bucket. It retrieves metadata about the uploaded image, updates a `images.json` file stored in the bucket, and then re-uploads the updated `images.json` file.
