@@ -4,6 +4,10 @@ export const handler = async (event) => {
   const s3Client = new S3Client({ region: 'us-west-2' });
 
   try {
+    if (!event.Records || !event.Records[0]) {
+      throw new Error("Event structure is not correct.");
+    }
+
     // Extracting image details from the S3 event
     const name = event.Records[0].s3.object.key;
     const size = event.Records[0].s3.object.size;
@@ -43,7 +47,7 @@ export const handler = async (event) => {
       body: JSON.stringify(imageDetails),
     };
   } catch (error) {
-    console.error('Error processing S3 event:', error);
+    console.error('Error processing S3 event:', error.message);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Internal Server Error' }),
